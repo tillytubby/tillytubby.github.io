@@ -3969,8 +3969,9 @@
 	
 	.bubbles span {
 		position: relative;
-		width: min(30px, 3vw); /* Ensure bubbles scale proportionally */
-		height: min(30px, 3vw);
+		width: min(3vw, 30px); /* Ensure bubbles scale proportionally */
+		height: min(3vw, 30px);
+		aspect-ratio: 1 / 1; /* Force the bubble to always be a perfect circle */
 		background: #4fc3dc;
 		margin: 0 4px;
 		border-radius: 50%;
@@ -3987,8 +3988,9 @@
 	.bubbles span:nth-child(3n) {
 		background: #FFC500;
 		box-shadow: 0 0 0 10px #FFC50044, 0 0 50px #FFC500, 0 0 100px #FFC500;
-		width: min(20px, 2vw);
-		height: min(20px, 2vw);
+		width: min(2vw, 20px);
+		height: min(2vw, 20px);
+		aspect-ratio: 1 / 1; /* Ensures it stays circular */
 	}
 	
 	@keyframes animate {
