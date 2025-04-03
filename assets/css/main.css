@@ -3952,51 +3952,50 @@
 	}
 
 
-#main {
-    position: relative; /* Ensure content inside is above the background */
-}
-
-.bubbles {
-    position: absolute;
-    bottom: 0; /* Keep it at the bottom */
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Keep them at the bottom of the container */
-    pointer-events: none;
-}
-
-.bubbles span {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background: #4fc3dc;
-    margin: 0 4px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
-    animation: animate 15s linear infinite;
-	animation-duration: calc(555s / var(--i));
-}
-
-.bubbles span:nth-child(even) {
-    background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
-}
-
-/* Add a third type of bubble - Orange */
-.bubbles span:nth-child(3n) {
-    background: #FFC500;
-    box-shadow: 0 0 0 10px #FFC50044, 0 0 50px #FFC500, 0 0 100px #FFC500;
-	width: 20px;
-    height: 20px;
-}
-
-@keyframes animate {
-    0% {
-        transform: translateY(var(--bubble-start-position, 150vh)) scale(0);
-    }
-    100% {
-        transform: translateY(-100vh) scale(1);
-    }
-}
+	#main {
+		position: relative; /* Ensure content inside is above the background */
+	}
+	
+	.bubbles {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		pointer-events: none;
+	}
+	
+	.bubbles span {
+		position: relative;
+		width: min(30px, 3vw); /* Ensure bubbles scale proportionally */
+		height: min(30px, 3vw);
+		background: #4fc3dc;
+		margin: 0 4px;
+		border-radius: 50%;
+		box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+		animation: animate 15s linear infinite;
+		animation-duration: calc(555s / var(--i));
+	}
+	
+	.bubbles span:nth-child(even) {
+		background: #ff2d75;
+		box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+	}
+	
+	.bubbles span:nth-child(3n) {
+		background: #FFC500;
+		box-shadow: 0 0 0 10px #FFC50044, 0 0 50px #FFC500, 0 0 100px #FFC500;
+		width: min(20px, 2vw);
+		height: min(20px, 2vw);
+	}
+	
+	@keyframes animate {
+		0% {
+			transform: translateY(var(--bubble-start-position, calc(100vh + 100px))) scale(0);
+		}
+		100% {
+			transform: translateY(-100vh) scale(1);
+		}
+	}
