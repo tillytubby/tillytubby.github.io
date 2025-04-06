@@ -25,9 +25,6 @@
 							<li><a href="groupprojects.html">Group Projects</a></li>
 							<li><a href="aboutme.html">About Me</a></li>
 							<li>
-								<a href="https://github.com/tillytubby" target="_blank" class="fab fa-github" style="font-size: 1.75em; color:#E0DFCC; padding-right: 0.1em;"></a>
-							</li>
-							<li>
 								<a href="https://www.linkedin.com/in/matilda-h%C3%B6gman-739584194/" target="_blank" class="fab fa-linkedin" style="font-size: 1.75em; color:#E0DFCC; padding-left: 0.1em; padding-right: 0.1em;"></a>
 							</li>
 							<li>
@@ -100,15 +97,75 @@
 						<header class="major">
 							<h3 style="color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.5em;">Super Mario 64 Character Controller</h3>
 						</header>								
-						<span class="image featured" style="width: auto; display: contents;"><img src="images/MovementShowcase.gif" alt="" style="max-height: 28em; width: -webkit-fill-available; justify-self: center; padding: 2em;"/></span>
+						<span class="image featured" style="width: auto; display: contents;"><img src="images/specialisation.gif" alt="" style="max-height: 28em; width: -webkit-fill-available; justify-self: center; padding: 2em;"/></span>
 					</section>
 
 
 					<section class="box special">
 						<div class="row">
 							<div class="col-12">
-								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Summary</h3>
-								<p style="text-align: left; margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Introduction</h3>
+								<p style="text-align: left; margin-bottom: 0px;">
+									I developed this project during the specialization course at The Game Assembly, where we create a focused programming project for our portfolios. I chose to make a 3D character controller for several reasons. First and foremost, I wanted to return to my roots — where my passion for games began: the Nintendo 64. Nothing has influenced my love for games more than those early days, playing Mario with my brother and childhood friends, with my mother translating clues as we searched for new stars. Those are some of my most cherished memories.
+								  </p>
+								  
+								  <p style="text-align: left; margin-bottom: 0px;">
+									Technically, I had never created a 3D character controller outside of Unity, and I had limited experience with PhysX. This project became the perfect opportunity to both challenge myself and to build something deeply personal.
+								  </p>
+								  
+								  <p style="text-align: left; margin-bottom: 0px;">
+									To keep the project within a realistic scope, I began by identifying which mechanics I definitely wanted to implement, which ones to cut entirely, and which would be considered “wish features” — features I’d love to include if time allowed.
+								  </p>
+								  <br>
+								  <p style="text-align: left; margin-bottom: 0px;">Things I definitely wanted to implement:</p>
+								  <ul style="text-align: left; padding-left: 40px;">
+									<li>Controller-based movement utilising an inputmapper</li>
+									<li>Single, double, and triple jump</li>
+									<li>Back flip</li>
+									<li>Duck</li>
+									<li>Long jump</li>
+									<li>Ground pound</li>
+								  </ul>
+								  
+								  <p style="text-align: left; margin-bottom: 0px;">Wish features:</p>
+								  <ul style="text-align: left; padding-left: 40px;">
+									<li>Ledge grab</li>
+									<li>Ledge climb/drop off</li>
+									<li>Ledge “traversal” (sideways movement whilst ledge grabbing, including falling off when the ledge ends)</li>
+								  </ul>
+								  
+								  <p style="text-align: left; margin-bottom: 0px;">
+									I ended up having the time to implement all of this, with a good understanding of how I could further implement the rest of the Super Mario 64 character controller mechanics. 
+									<br><br>
+									The controller was developed in our own game engine, Dream Engine, created by our project group.
+								  </p>
+							</div>
+						</div>
+					</section>
+
+					<section class="box special">
+						<div class="row">
+							<div class="col-12">
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Player Overview</h3>
+								<img src="images/marioplayer.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 2em;"/>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">An overview of the player class. The Observer inheritance is required for the inputmapper, Receive() is where all inputs are received.</p>
+							</div>
+						</div>
+					</section>
+
+					<section class="box special">
+						<div class="row">
+							<div class="col-12">
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">PhysX Setup</h3>
+								<img src="images/marioinit.png" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 2em;"/>
+
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">This code sets up the physics body for the player character using NVIDIA PhysX. It creates a dynamic rigid body with a capsule shape, which is ideal for smooth character movement and to avoid catching on geometry edges. The capsule is configured with custom collision filtering so it only interacts with relevant layers, like the environment.
+									<br><br>
+									To ensure the capsule stands upright (since PhysX capsules are horizontal by default), I rotate it 90 degrees around the Z-axis. I also lock all angular motion to prevent the body from tipping over during simulation, keeping the player upright at all times.
+									<br><br>
+									Mass and inertia are automatically computed based on the configured mass, and the body is registered with the PhysX scene. 
+									<br><br>
+									Finally, it's linked to the entity's RigidBodyComponent so that gameplay systems can interact with the physics representation.</p>
 							</div>
 						</div>
 					</section>
@@ -117,18 +174,59 @@
 					<section class="box special">
 						<div class="row">
 							<div class="col-12">
-								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">WIP</h3>
-								<p style="text-align: left; margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Jumps</h3>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">This is inside the player's Update function, where input flags along with other conditionals determine which jump should be triggered.</p>
+								<img src="images/mariojumpinputs.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">This is the TriggerJump function, where the jumps are done by manipulating the player's PxRigidDynamic.
+									<img src="images/mariotriggerjump.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
+								</p>
+
 							</div>
 						</div>
 					</section>
 
+					<section class="box special">
+						<div class="row">
+							<div class="col-12">
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Ground Pound & Ledge Climb</h3>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">This is also inside the player's Update function, just below the isGrounded check shown above, thereby checking for mid-air inputs instead.</p>
+								<img src="images/mariomidairjumpinputs.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">This is the triggering and releasing of the Ground Pound, mimicking how Mario does a little somersault that momentarily locks him in place mid-air before slamming downwards.
+									<img src="images/groundpound.png" alt="" style="max-width: 800px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									<img src="images/groundpoundairtimer.png" alt="" style="max-width: 500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
+								</p>
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">After ledge grabbing (shown further down), this is how I handled the climbing of ledges, which is triggered by doing forward or jump input whilst ledge grabbing.
+									<img src="images/ledgeclimb.png" alt="" style="max-width: 1200px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+								</p>
+
+							</div>
+						</div>
+					</section>
 
 					<section class="box special">
 						<div class="row">
 							<div class="col-12">
-								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">WIP</h3>
-								<p style="text-align: left; margin-bottom: 0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Ledge Grab</h3>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">The contents of this GIF were all wish-features for my specialisation, and I'm pretty happy with how they turned out. Displayed is: ledge grabbing, letting go by doing backwards input, climbing up by doing forward or jump input, movement while ledgegrabbing (locked to right/left), and finally, falling off if the ledge ends.</p>
+								<img src="images/ledgegrab.gif" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;"> Inside of the player's Update function, this is how the ledge grab is triggered.
+									<img src="images/marioledgegrab.png" alt="" style="max-width: 800px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+								</p>
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">This is the CheckIfNearAndFacingLedge function, which is a prerequisite to ledge grab being triggered.
+									<img src="images/mariocheckifnearwall.png" alt="" style="max-width: 1200px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									It works by shooting two rays, one from around knee-height and one from around chest-height. Should the upper one miss, and the lower one hit a surface that is near-enough facing the player directly (close to &nbsp;-1), the check returns true.
+								</p>
+
 							</div>
 						</div>
 					</section>
@@ -141,7 +239,6 @@
 				<footer id="footer">
 					<ul style="list-style-type: none;">
 						<li>
-							<a href="https://github.com/tillytubby" target="_blank" class="fab fa-github" style="font-size: 1.75em; color:#E0DFCC; padding-right: 0.1em; border-bottom: none; vertical-align: middle;"></a>
 							<a href="https://www.linkedin.com/in/matilda-h%C3%B6gman-739584194/" target="_blank" class="fab fa-linkedin" style="font-size: 1.75em; color:#E0DFCC; padding-left: 0.1em; padding-right: 0.1em; border-bottom: none; vertical-align: middle;"></a>
 							<a href="mailto:matildahogman@gmail.com" target="_blank" style="padding-left: 0.1em; padding-right: 0.1em; vertical-align: middle; border-bottom: none; vertical-align: middle;"><img src="images/Email Icon White.png" alt="" style="width: 2em; height: 1.9em; vertical-align: middle;"/></a>
 							<a href="files/CV - Matilda Högman.pdf" target="_blank" style="padding-left: 0.1em; padding-right: 0.1em; vertical-align: middle; border-bottom: none; vertical-align: middle;"><img src="images/CV Icon White.png" alt="" style="width: 1.35em; height: 1.9em; vertical-align: middle;"/></a>
