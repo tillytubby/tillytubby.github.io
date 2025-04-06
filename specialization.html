@@ -243,6 +243,49 @@
 						</div>
 					</section>
 
+					<section class="box special">
+						<div class="row">
+							<div class="col-12">
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Movement</h3>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;"> This is inside the Receive function, where all inputs from the inputmapper are handled.
+									<img src="images/marioreceivemove.png" alt="" style="max-width: 900px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									Movement is enabled by myStats.shouldMove flag is set to true. The movement direction is extracted from the message and converted to floating-point values, then normalized by dividing by 100 and stored in myStats.moveDirection to control the player's movement.
+								</p>
+								<br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;"> Inside of the player's Update function, movement inputs are handled and different functions are called based on flags and conditionals.
+									<img src="images/mariomovement.png" alt="" style="max-width: 500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0.5em;"/>
+								</p>
+								<br>
+								<h4 style="text-align: left; font-size: 0.9em; margin-top: 2em;font-family: 'Press Start 2P'">Grounded Movement</h4>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">This function handles the player’s grounded movement by adjusting its physics body’s linear velocity. If the player is ducking, the function exits early. It calculates the movement speed based on the input magnitude and clamps it to the maximum allowed speed. The player’s movement direction is determined by combining the forward and right vectors of the player’s transform, which are then scaled by the movement speed. Finally, the player's linear velocity is updated, keeping the vertical velocity unchanged.
+
+								</p>
+								<img src="images/mariogroundmovement.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0.5em;"/>
+
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;"> This function controls the player's movement when they are grounded but not receiving movement inputs, as well as when the player is ledge grabbing and moving sideways. In its essence, it stops the player. 									
+									<img src="images/mariogroundedfriction.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0.5em;"/>
+									It calculates the horizontal velocity and applies friction to slow the player down. If the velocity gets too low, it stops the player from sliding.
+									The function also applies a force to counteract unwanted horizontal movement caused by gravity, which ensures the player stays grounded. Finally, the updated velocity is applied to the player's physics body, keeping the vertical movement (gravity) intact while controlling the horizontal movement.
+								</p>
+								<br><br>
+								<h4 style="text-align: left; font-size: 0.9em; margin-top: 2em;font-family: 'Press Start 2P'">Mid-air Movement</h4>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">This function controls the player's movement while in the air.
+									<img src="images/mariomidairmovement.png" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0.5em;"/>
+									It calculates the desired movement speed based on the player's input and applies it in the direction the player is trying to move. The function also adjusts the movement by applying dampening forces, which make the player’s movement feel more natural as they spend more time in the air.
+									It combines the desired movement with the player's current velocity, taking into account how long they've been airborne, and then applies a force to the player’s physics body to control their movement in the air. all of this is done to create smooth and responsive air control while limiting excessive movement.									
+								</p>
+								<br><br>
+								<h4 style="text-align: left; font-size: 0.9em; margin-top: 2em;font-family: 'Press Start 2P'">Ledge Grab Movement</h4>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 1em;">This function is called when the player does sideways input while ledge grabbing and works very similarly to the regular grounded movement, except it only handles left/right movement.
+									<img src="images/mariosidewaysmovement.png" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0.5em;"/>
+									
+								</p>
+								
+
+							</div>
+						</div>
+					</section>
 
 
 				</section>
