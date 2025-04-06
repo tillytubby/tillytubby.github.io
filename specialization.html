@@ -183,6 +183,11 @@
 									<img src="images/mariotriggerjump.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
 
 								</p>
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">This is the CheckIfGrounded function, which works by shooting a ray downwards and returning true if the surface hit is near-enough horizontal.
+									<img src="images/mariogroundcheck.png" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
+								</p>
 
 							</div>
 						</div>
@@ -197,8 +202,9 @@
 
 								<br><br>
 								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">This is the triggering and releasing of the Ground Pound, mimicking how Mario does a little somersault that momentarily locks him in place mid-air before slamming downwards.
-									<img src="images/groundpound.png" alt="" style="max-width: 800px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
-									<img src="images/groundpoundairtimer.png" alt="" style="max-width: 500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									<img src="images/groundpound.png" alt="" style="max-width: 800px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0.5em; margin-bottom: 2em;"/>
+									In the Update function, this is the timer for the mid-air pause Mario does as he starts a Ground Pound. Once it's done, the ReleaseGroundPound function is called, which is what slams the player downwards.
+									<img src="images/groundpoundairtimer.png" alt="" style="max-width: 400px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 0em;"/>
 
 								</p>
 								<br><br>
@@ -225,6 +231,12 @@
 								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;">This is the CheckIfNearAndFacingLedge function, which is a prerequisite to ledge grab being triggered.
 									<img src="images/mariocheckifnearwall.png" alt="" style="max-width: 1200px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
 									It works by shooting two rays, one from around knee-height and one from around chest-height. Should the upper one miss, and the lower one hit a surface that is near-enough facing the player directly (close to &nbsp;-1), the check returns true.
+								</p>
+								<br><br>
+								<p style="text-align: left; margin-bottom: 0px; margin-top: 0em;"> Once the ledge grab is triggered, the player is automatically rotatedto face the ledge. This step ensures that the sideways movement available during ledge grabbing happens cleanly along the ledge’s surface, rather than at an angle. Without this adjustment, the player could slowly drift away during traversal, eventually falling due to lost contact with the ledge.
+									<img src="images/marioturntowards.png" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									The method calculates the closest point on the ledge's bounding box and uses that to determine a direction vector. It then applies a yaw rotation to both the player and the camera so they align with the ledge surface. While this solution works, it was a last-minute implementation and currently results in a somewhat choppy or abrupt turn.
+									With more time, I would have interpolated the rotation to create a smoother, more natural transition — both visually and mechanically.
 								</p>
 
 							</div>
