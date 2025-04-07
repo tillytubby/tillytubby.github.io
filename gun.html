@@ -103,7 +103,7 @@
 					<section class="box special">
 						<div class="row">
 							<div class="col-12">
-								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Summary</h3>
+								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Introduction & Summary</h3>
 								<p style="text-align: left; margin-bottom: 0px;">For our 7th game project at The Game Assembly, we were tasked with creating a first-person perspective game. We decided to use Titanfall 2 as our reference game, specifically the Frontier Defense game mode, a wave-shooter. For this, I wanted to design and develop a core mechanic of the game, and so I chose to do the weapon.</p>
 								<p style="text-align: left; margin-bottom: 0px;">The gun was inspired by the way Nintendo designs games — choosing one mechanic and making multiple ways for it to be used, creating a game experience around it. I would’ve loved to do something like the watergun from Super Mario Sunshine or the ink gun from Splatoon, but graphics programming isn’t my strong suit and I wasn’t sure how to incorporate such a weapon into our desired genre. 
 									And so I decided to make the one gun to rule them all, consisting of three different ammo types, each with their own use-case. Originally, I wanted the ammo types to be usable in multiple ways, but due to having very little time for designing and brainstorming, as well as little time overall,  some mechanics were scrapped and others were never thought of. I am pleased with the result in terms of each type having their own identity and use-case, but only one type ended up having multiple gameplay-impacting effects.<br>
@@ -121,6 +121,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Beam Ammo</h3>
+								<img src="images/lasershowcase.gif" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em; margin-bottom: 1em;"/>
 
 								<p style="text-align: left; margin-bottom: 0px;">
 									The first ammo type designed was the Beam. A precise, medium to long range type dealing low but continuous damage without ammo-count restrictions. The idea was that this would be the only ammo type unlocked at the start of the game, however, due to a time-restricted game loop (10 minutes), we decided to unlock the first level of each ammo type, so that the player got to experience them.
@@ -130,7 +131,9 @@
 									<br><br><br>
 									<strong style="font-size: 1em; font-family: 'Press Start 2P'">Upgrade Effect</strong><br>										
 									Upgrading the Beam makes it wider and increases its max range. The former is achieved by doing four additional raycasts, originating slightly to the left, right, above and below the original raycast, creating a wider hit area. The visual cylinder model is simply scaled up to match the width.
-								
+									<img src="images/upgradingbeam.gif" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									<img src="images/upgradedbeam.gif" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+
 									<br><br><br>
 									<strong style="font-size: 1em; font-family: 'Press Start 2P'">Potential Improvements</strong><br>
 									<strong style="font-size: 1.1em; ">Overheat</strong><br>
@@ -155,17 +158,32 @@
 							<div class="col-12">
 								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Rocket Ammo</h3>
 								<p style="text-align: left; margin-bottom: 0px;">
+									<img src="images/rocketshowcase.gif" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em; margin-bottom: 1em;"/>
+
 									The second ammo type designed was the Rocket. It is harder to hit, long range, dealing big damage in an area around its impact. It’s slow to fire and to reload with a relatively small magazine size, similar to a classic rocket launcher.									
 									<br><br>
 									The Rockets pull from a projectile pool that consists of RocketObjects, each holding a PhysX rigidbody but the Rocket is unaffected by gravitational pull and travels in a straight line.
 									<br><br>
 									This is the only ammo type that I managed to squeeze in a secondary gameplay mechanic into, the rocket jump, something I am very happy with. Originally, this jump dealt a fair bit of damage to the player in order to encourage the several movement options provided by our wonderful player controller (made by <a href="https://theanilsson.github.io" target="_blank" style="color: inherit; text-decoration: underline;">Thea Nilsson</a>). However, after playtest feedback we decided to drastically decrease the damage taken. The damage taken is also based on the player’s proximity to the impact location.
+									<img src="images/rocketjumpshowcase.gif" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
+									<strong style="text-align: center; display:block">Rocket jump showcase</strong>
 									<br><br><br>
 									<strong style="font-size: 1em; font-family: 'Press Start 2P'">Upgrade Effect</strong><br>										
 									Upgrading the Rocket ammo increases its travel speed, the radius of its explosion, the magazine size, and the size of its model. Mainly, I wanted bigger explosions to emphasize on its ability to deal with large quantities of enemies.								
+									<!-- <div style="display: flex; justify-content: space-between; gap: 1em; margin-top: 1em;">
+										<div style="flex: 1; text-align: center;">
+											<img src="images/rocketjumpshowcase.gif" alt="Rocket Jump 1" style="width: 100%; max-width: 480px; border: 1px solid rgb(100, 100, 100);" />
+											<strong style="display:block; margin-top: 0.5em;">Base tier Rocket Ammo</strong>
+										</div>
+										<div style="flex: 1; text-align: center;">
+											<img src="images/rocketjumpshowcase.gif" alt="Rocket Jump 2" style="width: 100%; max-width: 480px; border: 1px solid rgb(100, 100, 100);" />
+											<strong style="display:block; margin-top: 0.5em;">Upgraded Rocket Ammo</strong>
+										</div>
+									</div> -->
+									<img src="images/upgradedrocket.gif" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
 									<br><br><br>
-									<strong style="font-size: 1em; font-family: 'Press Start 2P'">Potential Improvements</strong><br>
-									I am happy with the Rocket ammo type overall, it would only be small tweaks such as cleaning up the code or adding pointlights to the projectiles in order to increase their visibility.
+									<strong style="font-size: 1em; text-align: left; font-family: 'Press Start 2P'">Potential Improvements</strong><br>
+									I am happy with the Rocket ammo type overall, it would only be small tweaks such as cleaning up the code or adding pointlights to the projectiles in order to increase their visibility. I also would've liked to scale up the explosion VFX to match the size of the explosion, but we ran out of production time.
 
 								</p>
 							</div>
@@ -177,6 +195,9 @@
 							<div class="col-12">
 								<h3 style="text-align: left; color: #E0DFCC; font-family: 'Press Start 2P', Consolas, sans-serif; font-size: 1.4em;">Goo Ammo</h3>
 								<p style="text-align: left; margin-bottom: 0px;">
+									<img src="images/gooo.gif" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em; margin-bottom: 1em;"/>
+									<img src="images/goo2.gif" alt="" style="max-width: 1500px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em; margin-bottom: 1em;"/>
+
 									The third and final ammo type designed was the Goo. This was somewhat hastily designed toward the end of our pre-production phase and it’s unfortunately pretty easy to tell. The Goo ammo type fires projectiles that bounce on impact with walls and spawn slowing “Goo Puddles” when they eventually hit the floor.
 									<br><br>
 									The Goo projectiles pull from a projectile pool that consists of GooObjects, each holding a PhysX rigidbody that is affected by gravity, causing them to travel in an arc.
@@ -187,6 +208,7 @@
 									<br><br><br>
 									<strong style="font-size: 1em; font-family: 'Press Start 2P'">Upgrade Effect</strong><br>										
 									Upgrading the Goo ammo increases the size and duration of its Goo Puddles, as well as the size of the projectile’s model. These felt like natural upgrade effects, but also felt somewhat shallow.
+									<img src="images/upgradinggoo.gif" alt="" style="max-width: 1000px;  width: -webkit-fill-available; border: 1px solid rgb(100, 100, 100); justify-self: center; display: block; margin-top: 1em;"/>
 									<br><br><br>
 									<strong style="font-size: 1em; font-family: 'Press Start 2P'">Potential Improvements</strong><br>
 									I don’t feel that the Goo ammo type became as useful as it could’ve been, it certainly could have used some more love in the design phase. Primarily, I would’ve loved to give its Goo Puddles the ability to be set ablaze by the Beam ammo type, creating an area that dealt damage over time and also creating cross-ammo type mechanics.
